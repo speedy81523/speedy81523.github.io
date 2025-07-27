@@ -71,7 +71,7 @@ function toggleMenus() { /*open and close menu*/
 const scoreBox = document.getElementById("scoreBox");
 var score = 0; //to track how many clicks
 const PopAudio = new Audio("audio/sui.mp3")
-
+const PopAudio1 = new Audio("audio/spongebob-fail.mp3")
 const JerseyId = document.getElementById("JerseyId");
 const JerseyId2 = document.getElementById("JerseyId2");
 const BadJerseyId = document.getElementById("BadJerseyId");
@@ -88,24 +88,40 @@ function GetRandom(min, max) {
 function spawnJersey(jersey) {
   //const isBad = jersey.id == "BadJerseyId"; //may not be used in the future idk
   //const isBad2 = jersey.id == "BadJerseyId2"; //may not be used in the future idk
-  jersey.style.left = GetRandom(0, 300) + "px";
-  jersey.style.top = GetRandom(0, 750) + "px";
-  jersey.style.display = "block";
+  //jersey.style.left = GetRandom(0, 300) + "px";
+  //jersey.style.top = GetRandom(0, 500) + "px";
+  //jersey.style.display = "block";
 
+  const maxX = window.innerWidth - jersey.offsetWidth; //use window
+  const maxY = window.innerHeight - jersey.offsetHeight;
+
+  jersey.style.left = GetRandom(0, maxX) + "px";
+  jersey.style.top = GetRandom(0, maxY) + "px";
+  jersey.style.display = "block";
   setTimeout(() => {
     jersey.style.display = "none";
-  }, 1200);
+  }, 700);
 }
 
 //choose which jersey to appear
 setInterval(() => {
   const randomIndex = GetRandom(0, jerseys.length - 1);
   spawnJersey(jerseys[randomIndex]);
-}, 700); //time
+}, 500); //time
+
 
 
 
 function JerseyCatch() {
+
+
+  this.classList.add("shrink");
+
+
+  this.addEventListener("transitionend", () => {
+    this.style.display = "none";
+    this.classList.remove("shrink"); 
+  }, { once: true });
 
   //increases score after clicking
   score++;
@@ -113,18 +129,36 @@ function JerseyCatch() {
   scoreBox.innerHTML = "Score: " + score;
   PopAudio.play();
 
-  this.style.display = "none";
+
 }
 function BadJerseyCatch() { //testing
 
+
+
+ this.classList.add("shrink");
+
+
+  this.addEventListener("transitionend", () => {
+    this.style.display = "none";
+    this.classList.remove("shrink"); 
+  }, { once: true });
+
   //decreases score after clicking
-  score = score - 5;
+  score -= 5;
+   // clamp score to minimum 0
+  if (score < 0) {
+    score = 0;
+  }
   //update html scorebox
   scoreBox.innerHTML = "Score: " + score;
-  PopAudio.play();
+  PopAudio1.play();
 
-  this.style.display = "none";
+
+   
 }
+
+
+
 //link durian to mouseclick to durianCatch function
 JerseyId.addEventListener("click", JerseyCatch);
 JerseyId2.addEventListener("click", JerseyCatch);
@@ -134,21 +168,21 @@ JerseyId4.addEventListener("click", JerseyCatch);
 BadJerseyId2.addEventListener("click", BadJerseyCatch);
 
 //animation
-document.addEventListener("keydown", function (evt) {
-  console.log(evt);
-  if (evt.code == "KeyT") {
-    JerseyId.classList.add("shrink");
-  }
-  if (evt.code == "KeyU") {
-    JerseyId.classList.remove("shrink");
-  }
-  if (evt.code == "KeyA") {
-    JerseyId.classList.add("anim1");
-  }
-  if (evt.code == "KeyB") {
-    JerseyId.classList.remove("anim1");
-  }
-});
+//document.addEventListener("keydown", function (evt) {
+//console.log(evt);
+//if (evt.code == "KeyT") {
+//  JerseyId.classList.add("shrink");
+//}
+//if (evt.code == "KeyU") {
+//  JerseyId.classList.remove("shrink");
+//}
+//if (evt.code == "KeyA") {
+//  JerseyId.classList.add("anim1");
+//}
+//if (evt.code == "KeyB") {
+//  JerseyId.classList.remove("anim1");
+//}
+//});
 
 
 //timeline
@@ -158,10 +192,10 @@ document.addEventListener("keydown", function (evt) {
 
 const timelineData = [
   {
-    title: "Early 1900s",
-    content: "Football shirts were made from thick cotton and had no sponsorships or logos.",
+    title: "Late 19th Century to Mid 20th Century",
+    content: "Football shirts were made from thick cotton and had no sponsorships or logos. By the mid 20th century football shirts begin to have club/nation logos",
     galleryImages: [
-      "images/test.jpeg", "images/test2.jpg", "images/test3.jpg",
+      "images/early_shirt1.jpg", "images/early_shirt2.jpg"
     ]
 
   },
@@ -169,20 +203,20 @@ const timelineData = [
     title: "1970s",
 
     content: "Kits started including sponsors and sold to consumers.",
-    galleryImages: []
+    galleryImages: ["images/70s_shirt.jpg", "images/70s_shirt2.jpg"]
 
   },
   {
     title: "1980s",
 
     content: "With better technology in manfactuaring shirts, Football shirts had more flashy designs that appealed more to fans.",
-    galleryImages: []
+    galleryImages: ["images/80s_shirt.jpg", "images/80s_shirt2.jpg",]
 
   },
   {
     title: "1990s",
     content: "Shirts became more stylish with bold patterns and global branding. Shirts become baggy due to the fashion at that time",
-    galleryImages: []
+    galleryImages: ["images/90s_shirt1.jpg", "images/90s_shirt2.jpg"]
   },
   {
 
@@ -190,13 +224,13 @@ const timelineData = [
 
     content: "Baggy shirts were all the rage, post-2005 saw manfacturers experiment and eventually produce thinner, tighter shirts that would replace the baggy designs by the early 2010s.",
 
-    galleryImages: []
+    galleryImages: ["images/00s_shirt.jpg", "images/00s_shirt2.jpg"]
   },
   {
     title: "Modern Day",
 
     content: "Lightweight, breathable shirts with sponsor logos and designer collabs.",
-    galleryImages: []
+    galleryImages: ["images/10_shirt.jpg"]
 
   }
 ];
@@ -306,39 +340,34 @@ const process = [
   {
     processTitle: "Step 1: Design",
     processContent: "A digital blueprint is created by designers.",
-    processImage: ["images/test.jpeg"],
+    processImage: ["images/example.jpg"],
     funFactBox: "Designers use 3D software to create mockups"
   },
   {
     processTitle: "Step 2: Fabric Selection",
     processContent: "Lightweight, breathable materials are chosen. The first jerseys were made of cotton, and as technology evolved polyester was used. Even recycliable materials are used today",
-    processImage: ["images/test2.jpg"],
+    processImage: ["images/example.jpg"],
     funFactBox: "Modern football shirts can be made from up to 13 recycled plastic bottles! Nike’s 2010 World Cup kits were the first to use this innovation."
   },
   {
     processTitle: "Step 3: Dyeing",
     processContent: "Fabric is colored with vibrant dyes.",
-    processImage: ["images/test3.jpg"],
+    processImage: ["images/example.jpg"],
     funFactBox: "To get bold, vibrant colors, shirts are often dyed using heat and pressure"
   },
   {
     processTitle: "Step 4: Stitching",
     processContent: "Panels are cut and sewn together.",
-    processImage: ["images/test.jpeg"],
+    processImage: ["images/example.jpg"],
     funFactBox: "One football shirt can be made from over 20 different fabric panels, each carefully cut and stitched for maximum movement and comfort."
   },
   {
     processTitle: "Step 5: Printing",
     processContent: "Logos and names are heat-pressed.",
-    processImage: ["images/test2.jpg"],
+    processImage: ["images/nameset.jpg"],
     funFactBox: "For a long while, namesets were made out of felt, a soft but hard material. This was eventually replaced with plastic in 2013"
-  },
-  {
-    processTitle: "Step 6: Packaging",
-    processContent: "Shirts are folded and packed for shipping.",
-    processImage: ["images/test3.jpg"],
-    funFactBox: "Some special shirt releases are released in special boxes."
   }
+ 
 ];
 
 let currentProcessStep = 0;
@@ -403,16 +432,16 @@ updateProcess();
 //Contrversial Shirts
 const Controversial_Shirts = [
   {
-    ShirtTitle: "Flortenia 1992 Home Shirt",
-    ShirtContent: "Withdrawn quickly after release due to a pattern that unintentionally resembled a swastika.",
-    ShirtImage: ["images/test.jpeg"],
-    JerseyFunFact: "The club issued an apology and destroyed remaining stock within a week of release."
+    ShirtTitle: "Fiorentina  1992 Home Shirt",
+    ShirtContent: "Withdrawn  due to a pattern that unintentionally resembled a swastika.",
+    ShirtImage: ["images/florence.jpg"],
+    JerseyFunFact: "The club issued an apology and the shirt was replaced half way through the season."
   },
   {
-    ShirtTitle: "Italy 2004 Training Shirt",
-    ShirtContent: "Criticized for its overly tight fit, sparking debates on body image and athlete pressure.",
-    ShirtImage: ["images/test2.jpg"],
-    JerseyFunFact: "Nicknamed the 'second skin', players joked it was harder to take off than defend a free kick."
+    ShirtTitle: "Caneroon 2004 One-Piece Shirt",
+    ShirtContent: "Cameroon was fined by FIFA and new rules were establishing stating that the shirt and shorts had to be seperate",
+    ShirtImage: ["images/2004.jpg"],
+    JerseyFunFact: "Players found it diffcult to put on as the pants were sew on the shirt"
   },
   {
     ShirtTitle: "Cameroon 2002 Sleeveless Shirt",
@@ -420,24 +449,7 @@ const Controversial_Shirts = [
     ShirtImage: ["images/cameroon_2002.jpg"],
     JerseyFunFact: "Cameroon’s sleeveless kit was inspired by track uniforms and shocked the football world."
   },
-  {
-    ShirtTitle: "Mexico 1998 Keeper Kit",
-    ShirtContent: "Goalkeeper Jorge Campos designed his own shirts, often featuring bizarre neon designs.",
-    ShirtImage: ["images/test2.jpg"],
-    JerseyFunFact: "Campos’ flamboyant kits were said to distract penalty takers — intentionally."
-  },
-  {
-    ShirtTitle: "England 1996 Away Shirt",
-    ShirtContent: "Fans were divided over the ‘grey’ away shirt, with critics calling it dull and unpatriotic.",
-    ShirtImage: ["images/test3.jpg"],
-    JerseyFunFact: "Some say England's loss to Germany in this kit cursed grey football shirts for years."
-  },
-  {
-    ShirtTitle: "Barcelona 2012 Quartered Shirt",
-    ShirtContent: "The half-and-half red and blue design divided fans who preferred the traditional stripes.",
-    ShirtImage: ["images/test2.jpg"],
-    JerseyFunFact: "It was the first time in 113 years Barcelona abandoned vertical stripes entirely."
-  }
+ 
 ];
 
 let CurrentShirtStep = 0;
@@ -534,7 +546,7 @@ startQuizBtn.addEventListener("click", () => {
   document.querySelectorAll('.page > *:not(#quizSection)').forEach(el => el.style.display = "none"); //clear every other page
   quizSection.style.display = "block";
   startQuizBtn.style.display = "none";
- 
+
   showQuestion();
 });
 
@@ -578,15 +590,15 @@ nextQuestionBtn.addEventListener("click", () => {
 
 backToStartBtn.addEventListener("click", () => {
 
-  
+
 
   quizSection.style.display = "none";
 
-  
+
   document.querySelectorAll('.page > *:not(#quizSection)').forEach(el => el.style.removeProperty("display")); //reset to before
 
 
-  
+
 
   currentQuestionIndex = 0;
   Quizscore = 0;
@@ -594,6 +606,6 @@ backToStartBtn.addEventListener("click", () => {
   nextQuestionBtn.style.display = "none";
   backToStartBtn.style.display = "none";
 
-  startQuizBtn.style.display = "inline-block"; 
+  startQuizBtn.style.display = "inline-block";
 
 });

@@ -3,7 +3,8 @@
     height: auto;
     border: 1px solid red;
     margin: auto;
-
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 p {
@@ -12,6 +13,18 @@ p {
 
 body {
     text-align: center;
+  
+    background-size: cover;
+    background-color: grey;
+    background-position: center;
+ 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+   
+    margin: 0;
+    padding: 0;
+
+ 
 }
 
 header {
@@ -45,7 +58,37 @@ nav ul li {
 #page6 {
     background: rgb(255, 204, 0);
     width: 80vw;
-    height: 80vw;
+    height: 40vw;
+    overflow: hidden;
+  touch-action: manipulation;
+}
+
+.menuBox {
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    width: fit-content;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.menuBox button {
+    margin: 8;
+    padding: 10 16;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #007acc;
+    color: white;
+    cursor: pointer;
+}
+
+.menuBox button:hover {
+    background-color: #005fa3;
+    /*transition: transform 0.6 ease;*/
+    /*transform: scale(1.5);*/
 }
 
 /*CSS for responsive menu*/
@@ -71,10 +114,25 @@ nav ul li {
     }
 
     img {
-
-        max-height: 200;
-        max-width: 200;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        justify-content: center;
+        align-items: center;
     }
+     .jersey {
+        width: 35vw; /* or adjust to your liking */
+    }
+
+    .image_display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7.5px;
+    margin: 10px auto;
+    max-width: 90vw;
+    max-height: 350px;
+    }  
 }
 
 .borderline {
@@ -91,8 +149,10 @@ nav ul li {
 .image_display {
     display: flex;
 
+
     gap: 7.5px;
     margin-left: 15ch;
+    margin-right: 15ch;
     max-height: 350;
     max-width: 350;
 
@@ -108,7 +168,8 @@ nav ul li {
 
 
 
-j/*jerseyId {
+j
+/*jerseyId {
     position: relative;
     width: 10vw;
     transition: all 0.5s;
@@ -191,6 +252,7 @@ j/*jerseyId {
     padding: 20px;
     border-radius: 10px;
 }
+
 #timeline button {
     display: inline-block;
     margin: 10px 5px 0 5px;
@@ -226,21 +288,27 @@ j/*jerseyId {
     transform: scale(1.3);
 }
 
-.process-image-wrapper { /*help*/
-  position: relative;
-  display: inline-block;
+.process-image-wrapper {
+    /*help*/
+    position: relative;
+    display: inline-block;
 }
 
 .process-image-wrapper img {
-  width: 100%;
-  max-width: 400px; 
-  transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+#image-gallery {
+  max-width: 350px;  
+  margin: 20px auto;  
+  text-align: center;
 }
 
 #galleryImage {
-    max-height: 200;
-    max-width: 200;
-    padding: 5;
+ max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .iconic-images-grid {
@@ -249,7 +317,7 @@ j/*jerseyId {
     /*refren*/
     gap: 20px;
     max-width: 600px;
-    margin: 2 auto;
+    margin: 2rem auto;
 }
 
 .iconic-images-grid figure {
@@ -262,7 +330,7 @@ j/*jerseyId {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition:  transform 0.6 ease;
+    transition: transform 0.6 ease;
 }
 
 .iconic-images-grid img:hover {
@@ -296,7 +364,7 @@ j/*jerseyId {
 
 /*testing*/
 .process-image-wrapper:hover .fun-fact-box {
-  opacity: 1;
+    opacity: 1;
 }
 
 
@@ -308,7 +376,7 @@ j/*jerseyId {
 }
 
 #shirt-image {
-   display: block;
+    display: block;
     margin: 20px auto;
     width: 300px;
     height: auto;
@@ -318,19 +386,20 @@ j/*jerseyId {
 }
 
 #shirt-image:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
-.shirt-image-wrapper { /*help*/
-  position: relative;
-  display: inline-block;
+.shirt-image-wrapper {
+    /*help*/
+    position: relative;
+    display: inline-block;
 }
 
 .shirt-image-wrapper img {
- width: 100%;
-  max-width: 400px; 
-  transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
 }
 
 
@@ -361,5 +430,19 @@ j/*jerseyId {
 }
 
 #backToStartBtn {
-  display: none;
+    display: none;
+}
+
+
+
+.pageFooter {
+    text-align: center;
+    padding: 1em;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
 }

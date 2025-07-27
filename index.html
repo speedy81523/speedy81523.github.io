@@ -1,23 +1,29 @@
+<!DOCTYPE html> 
 <head>
-    <link rel="stylesheet" href="css/css.css">
-    <script src="javascript/javascript.js" defer></script>
+    <link rel="stylesheet" href="css.css">
+    <script src="javascript.js" defer></script>
 </head>
 
 <body>
+    
     <header>
         <h1>Football Shirts</h1>
     </header>
     <nav> <!--menu system-->
         <!--hamburger icon for mobile-->
-        <button id="hamIcon">Open Menu</button>
-        <ul>
-            <li><button id="page1btn">History Of Football Shirts</button></li>
-            <li><button id="page2btn">Iconic Football Shirts</button></li>
-            <li><button id="page3btn">How Football Shirts Are Made</button></li>
-            <!--- <li><button id="page4btn">Marketing Of Football Shirts</button></li> -->
-            <li><button id="page4btn">Controversal Football Shirts</button></li>
-            <li><button id="page5btn">Jersey Clicker</button></li>
-        </ul>
+        <div class="menuBox">
+            <button id="hamIcon">Open Menu</button>
+            <ul>
+                <li><button id="page1btn">History Of Football Shirts</button></li>
+                <li><button id="page2btn">Iconic Football Shirts</button></li>
+                <li><button id="page3btn">How Football Shirts Are Made</button></li>
+                <!--- <li><button id="page4btn">Marketing Of Football Shirts</button></li> -->
+                <li><button id="page4btn">Controversal Football Shirts</button></li>
+                <li><button id="page5btn">Jersey Clicker</button></li>
+            </ul>
+
+        </div>
+
     </nav>
     <main id="pagecontainer"> <!--for now, the content will be AI, will be replaced lol-->
         <section class="page" id="page1">
@@ -27,9 +33,7 @@
                 shirts that were often plain and utilitarian. There was little emphasis on design or branding; the main
                 goal was simply to distinguish one team from another, often using basic solid colors or stripes.
             </p>
-            <div class="image_display">
-                <img src="images/test.jpeg" alt="jersey image">
-            </div>
+          
             <p>
                 As football became more organized and professionalized in the early 20th century, clubs began to adopt
                 more consistent colors and styles that reflected their local identity and traditions. For example, teams
@@ -37,9 +41,7 @@
                 of collars and buttons was common in early kits, though these features gradually fell out of favor as
                 comfort and practicality took priority.
             </p>
-            <div class="image_display">
-                <img src="images/test.jpeg" alt="jersey image">
-            </div>
+           
             <p>
                 In the mid-20th century, technological advances in fabric production brought significant changes. Shirts
                 transitioned from heavy cotton to lighter, more breathable synthetic materials such as polyester, which
@@ -66,7 +68,7 @@
                 style.
             </p>
             <p>
-                Overall, the history of football shirts is a story of innovation, identity, and passion — evolving from
+                Overall, the history of football shirts is a story of innovation, identity, and passion  evolving from
                 humble cotton tops to high-tech symbols of culture and sport enjoyed by millions worldwide.
             </p>
             <div class="borderline">
@@ -120,9 +122,7 @@
                 but also due to the iconic players who wore them and the unforgettable moments they represent. These
                 kits often become symbols of entire eras, remembered fondly by fans and collectors alike.
             </p>
-            <div class="image_display">
-                <img src="images/test.jpeg" alt="Jersey image">
-            </div>
+           
             <p>
                 One of the most famous shirts is Brazil’s 1970 yellow kit, worn by Pelé and his teammates during their
                 dominant World Cup performance. Its vibrant colors and association with 'jogo bonito' (the beautiful
@@ -143,26 +143,22 @@
             </div>
             <div class="iconic-images-grid">
                 <figure>
-                    <img src="images/test.jpeg" alt="Brazil 1970 shirt" />
+                    <img src="images/70s_shirt2.jpg" alt="Brazil 1970 shirt" >
                     <figcaption>Brazil 1970 Yellow Kit</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="images/classic_milan.jpg" alt="AC Milan shirt" />
+                    <img src="images/classic_milan.jpg" alt="AC Milan shirt" >
                     <figcaption>AC Milan Red & Black Stripes</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="images/test2.jpg" alt="Inter Milan shirt" />
-                    <figcaption>Inter Milan Blue Stripes</figcaption>
+                    <img src="images/90s_shirt1.jpg" alt="Inter Milan shirt" >
+                    <figcaption>Inter Milan 97/98 UEFA Cup Shirt</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="images/classic_manu.jpg" alt="Manchester United 1999 shirt" />
-                    <figcaption>Manchester United 1999 Treble Kit</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/test2.jpg" alt="Manchester United 1999 shirt" />
+                    <img src="images/classic_manu.jpg" alt="Manchester United 1999 shirt" >
                     <figcaption>Manchester United 1999 Treble Kit</figcaption>
                 </figure>
 
@@ -186,7 +182,7 @@
             </p>
             <p>
                 Once assembled, each shirt undergoes quality control to check stitching, durability, and color
-                consistency. After passing inspection, the shirts are distributed globally — both for professional
+                consistency. After passing inspection, the shirts are distributed globally both for professional
                 players and for retail fans.
             </p>
             <div class="borderline">
@@ -265,7 +261,7 @@
 
 
                 <div class="shirt-image-wrapper">
-                    <img id="shirt-image" src="" alt="shirt" />
+                    <img id="shirt-image" alt="shirt">
                     <div id="funFact2" class="funFactBox">
                         Fun fact will appear here!
                     </div>
@@ -280,13 +276,16 @@
             <p>Collect classic and good looking jerseys by clicking them, do not touch the bad looking ones or jerseys
                 with errors as it will decrease your score</p>
 
-            <img id="JerseyId" class="jersey" src="images/test.jpeg" alt="Jersey image">
-            <img id="JerseyId2" class="jersey" src="images/test2.jpg" alt="jersey 2 image">
-            <img id="BadJerseyId" class="jersey" src="images/test3.jpg" alt="jersey 3 bomb image">
+            <img id="JerseyId" class="jersey" src="images/70s_shirt2.jpg" alt="Jersey image">
+            <img id="JerseyId2" class="jersey" src="images/90s_shirt1.jpg" alt="jersey 2 image">
+            <img id="BadJerseyId" class="jersey" src="images/florence.jpg" alt="jersey 3 bomb image">
             <img id="JerseyId3" class="jersey" src="images/classic_milan.jpg" alt="jersey 4 image">
             <img id="JerseyId4" class="jersey" src="images/classic_manu.jpg" alt="jersey 5 image">
             <img id="BadJerseyId2" class="jersey" src="images/cameroon_2002.jpg" alt="jersey 6 bomb image">
         </section>
 
     </main>
+    <footer id="pageFooter">
+        <p>2025 Done by Tyler</p>
+    </footer>
 </body>
