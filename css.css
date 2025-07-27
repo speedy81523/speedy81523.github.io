@@ -446,3 +446,18 @@ j
     width: 100%;
 
 }
+
+.qr-code {
+  width: 120px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* Hide QR code on small screens */
+@media (max-width: 768px) {
+  .qr-code {
+    display: none;
+  }
+}
