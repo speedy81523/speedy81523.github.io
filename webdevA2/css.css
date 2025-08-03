@@ -456,7 +456,7 @@ j
 }
 
 /* Hide QR code on small screens */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .qr-code {
     display: none;
   }
