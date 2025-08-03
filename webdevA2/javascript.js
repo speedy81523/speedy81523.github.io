@@ -104,11 +104,16 @@ function spawnJersey(jersey) {
 }
 
 //choose which jersey to appear
-setInterval(() => {
+//setInterval(() , 500); {
+ // const randomIndex = GetRandom(0, jerseys.length - 1);
+  //spawnJersey(jerseys[randomIndex]);
+//}; //time
+function spawnRandomJersey() {
   const randomIndex = GetRandom(0, jerseys.length - 1);
   spawnJersey(jerseys[randomIndex]);
-}, 500); //time
+}
 
+setInterval(spawnRandomJersey, 500);
 
 
 
@@ -267,14 +272,14 @@ function updateTimeline() {
 }
 
 //switch timeline parts
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", function() {
   if (currentStep < timelineData.length - 1) {
     currentStep++;
     updateTimeline();
   }
 });
 
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener("click", function() {
   if (currentStep > 0) {
     currentStep--;
     updateTimeline();
@@ -314,7 +319,7 @@ function updateGalleryImage() {
 //  updateGalleryImage();
 //});
 
-nextShirtBtn.addEventListener("click", () => {
+nextShirtBtn.addEventListener("click", function()  {
   const images = timelineData[currentStep].galleryImages; //get from array
   if (!images || images.length === 0) return;
 
@@ -322,7 +327,7 @@ nextShirtBtn.addEventListener("click", () => {
   updateGalleryImage();
 });
 
-prevShirtBtn.addEventListener("click", () => {
+prevShirtBtn.addEventListener("click", function()  {
   const images = timelineData[currentStep].galleryImages;
   if (!images || images.length === 0) return;
 
@@ -397,14 +402,14 @@ function updateProcess() {
 }
 
 
-processNextBrtn.addEventListener("click", () => {
+processNextBrtn.addEventListener("click", function()  {
   if (currentProcessStep < process.length - 1) {
     currentProcessStep++;
     updateProcess();
   }
 });
 
-processPrevBrtn.addEventListener("click", () => {
+processPrevBrtn.addEventListener("click",function() {
   if (currentProcessStep > 0) {
     currentProcessStep--;
     updateProcess();
@@ -414,12 +419,12 @@ processPrevBrtn.addEventListener("click", () => {
 
 
 //hover
-processImage.addEventListener("mouseenter", () => {
+processImage.addEventListener("mouseenter", function() {
   funFactBox.style.opacity = 1;
   funFactBox.style.pointerEvents = "auto";
 });
 
-processImage.addEventListener("mouseleave", () => {
+processImage.addEventListener("mouseleave",function() {
   funFactBox.style.opacity = 0;
   funFactBox.style.pointerEvents = "none";
 });
@@ -479,14 +484,14 @@ function updateShirtStep() {
 }
 
 
-ShirtNextBrtn.addEventListener("click", () => {
+ShirtNextBrtn.addEventListener("click", function() {
   if (CurrentShirtStep < Controversial_Shirts.length - 1) {
     CurrentShirtStep++;
     updateShirtStep();
   }
 });
 
-ShirtPrevBrtn.addEventListener("click", () => {
+ShirtPrevBrtn.addEventListener("click", function() {
   if (CurrentShirtStep > 0) {
     CurrentShirtStep--;
     updateShirtStep();
@@ -495,12 +500,12 @@ ShirtPrevBrtn.addEventListener("click", () => {
 
 
 //hover
-ShirtImage.addEventListener("mouseenter", () => {
+ShirtImage.addEventListener("mouseenter",function() {
   JerseyFunFact.style.opacity = 1;
   JerseyFunFact.style.pointerEvents = "auto";
 });
 
-ShirtImage.addEventListener("mouseleave", () => {
+ShirtImage.addEventListener("mouseleave", function() {
   JerseyFunFact.style.opacity = 0;
   JerseyFunFact.style.pointerEvents = "none";
 });
@@ -555,12 +560,12 @@ startQuizBtn.addEventListener("click", () => {
 function showQuestion() {
   const currentQuestion = quizData[currentQuestionIndex];
   quizContainer.innerHTML = ` 
-        <div class="quiz-question">${currentQuestion.question}</div> 
-        ${currentQuestion.options.map(option => `<div class="quiz-option">${option}</div>`).join('')} `;
+  <div class="quiz-question">${currentQuestion.question}</div> 
+  ${currentQuestion.options.map(option => `<div class="quiz-option">${option}</div>`).join('')} `;
   nextQuestionBtn.style.display = "none"; //this one
 
-  document.querySelectorAll('.quiz-option').forEach(Option_Answer => {
-    Option_Answer.addEventListener("click", () => {
+  document.querySelectorAll('.quiz-option').forEach(Option_Answer => { //=> is a newer function
+    Option_Answer.addEventListener("click", function() {
       if (Option_Answer.textContent === currentQuestion.answer) {
         Quizscore++;
         Option_Answer.style.backgroundColor = "lightgreen";
@@ -574,7 +579,7 @@ function showQuestion() {
   });
 }
 
-nextQuestionBtn.addEventListener("click", () => {
+nextQuestionBtn.addEventListener("click", function() {
   currentQuestionIndex++;
   if (currentQuestionIndex < quizData.length) {
     showQuestion();
@@ -588,7 +593,7 @@ nextQuestionBtn.addEventListener("click", () => {
 });
 
 
-backToStartBtn.addEventListener("click", () => {
+backToStartBtn.addEventListener("click",function() {
 
 
 
