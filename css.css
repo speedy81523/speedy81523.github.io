@@ -36,27 +36,27 @@ nav ul li {
 }
 
 #page1 {
-    background: red
+    background: white
 }
 
 #page2 {
-    background: green
+    background: white
 }
 
 #page3 {
-    background: blue
+    background: white
 }
 
 #page4 {
-    background: rgb(153, 210, 11)
+    background: white
 }
 
 #page5 {
-    background: rgb(171, 13, 179)
+    background: white
 }
 
 #page6 {
-    background: rgb(255, 204, 0);
+    background: white;
     width: 80vw;
     height: 40vw;
     overflow: hidden;
