@@ -352,7 +352,7 @@ const process = [
   {
     processTitle: "Step 3: Dyeing",
     processContent: "Fabric is colored with vibrant dyes.",
-    processImage: ["images/example.jpg"],
+    processImage: ["images/design.jpg"],
     funFactBox: "To get bold, vibrant colors, shirts are often dyed using heat and pressure"
   },
   {
