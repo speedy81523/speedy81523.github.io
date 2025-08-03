@@ -363,7 +363,7 @@ const process = [
   },
   {
     processTitle: "Step 5: Printing",
-    processContent: "Logos and names are heat-pressed.",
+    processContent: "Logos and names are heat-pressed onto the shirt.",
     processImage: ["images/nameset.jpg"],
     funFactBox: "For a long while, namesets were made out of felt, a soft but hard material. This was eventually replaced with plastic in 2013"
   }
